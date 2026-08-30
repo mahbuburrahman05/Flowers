@@ -10,19 +10,17 @@
 
 <title>Flower Garden</title>
 
-
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 html,
 body {
@@ -33,9 +31,7 @@ body {
     overflow: hidden;
 
     background: #000;
-
 }
-
 
 body {
 
@@ -43,13 +39,12 @@ body {
         Georgia,
         "Times New Roman",
         serif;
-
 }
 
 
-/* =========================================================
+/* =====================================================
    MAIN SCENE
-========================================================= */
+===================================================== */
 
 .scene {
 
@@ -58,26 +53,23 @@ body {
     width: 100vw;
     height: 100vh;
 
-    height: 100svh;
+    min-height: 100svh;
 
     overflow: hidden;
 
     background:
-
         radial-gradient(
             ellipse at center bottom,
-            #101810 0%,
-            #060806 35%,
-            #010101 72%,
-            #000000 100%
+            #111812 0%,
+            #050705 38%,
+            #000000 75%
         );
-
 }
 
 
-/* =========================================================
+/* =====================================================
    CANVAS
-========================================================= */
+===================================================== */
 
 #garden {
 
@@ -91,13 +83,12 @@ body {
     display: block;
 
     z-index: 1;
-
 }
 
 
-/* =========================================================
-   VIGNETTE
-========================================================= */
+/* =====================================================
+   DARK VIGNETTE
+===================================================== */
 
 .vignette {
 
@@ -105,25 +96,23 @@ body {
 
     inset: 0;
 
-    z-index: 3;
-
     pointer-events: none;
 
-    background:
+    z-index: 3;
 
+    background:
         radial-gradient(
             ellipse at center,
-            transparent 30%,
-            rgba(0,0,0,.18) 55%,
+            transparent 35%,
+            rgba(0,0,0,.25) 65%,
             rgba(0,0,0,.72) 100%
         );
-
 }
 
 
-/* =========================================================
-   ROMANTIC MESSAGE
-========================================================= */
+/* =====================================================
+   ROMANTIC TEXT
+===================================================== */
 
 .message {
 
@@ -132,35 +121,29 @@ body {
     z-index: 10;
 
     left: 50%;
-    top: 44%;
+    top: 46%;
 
-    width: min(650px, 90%);
+    width: min(600px, 90%);
 
     transform:
         translate(-50%, -50%)
-        translateY(35px);
+        translateY(30px);
 
     text-align: center;
 
-    color: #fff;
+    color: white;
 
     opacity: 0;
 
     pointer-events: none;
 
     transition:
-
-        opacity 2.2s ease,
-
-        transform 2.2s
-        cubic-bezier(.2,.8,.2,1);
+        opacity 2s ease,
+        transform 2s cubic-bezier(.2,.8,.2,1);
 
     text-shadow:
-
-        0 3px 25px rgba(0,0,0,.95),
-
-        0 0 40px rgba(255,255,255,.08);
-
+        0 2px 20px rgba(0,0,0,.95),
+        0 0 35px rgba(255,255,255,.08);
 }
 
 
@@ -171,13 +154,12 @@ body {
     transform:
         translate(-50%, -50%)
         translateY(0);
-
 }
 
 
-/* =========================================================
-   SMALL TEXT
-========================================================= */
+/* =====================================================
+   SMALL HEADING
+===================================================== */
 
 .message .small {
 
@@ -188,70 +170,59 @@ body {
 
     font-size: 11px;
 
-    font-weight: 400;
-
     letter-spacing: 7px;
+
+    font-weight: 400;
 
     color:
         rgba(255,255,255,.75);
 
-    text-transform: uppercase;
-
     margin-bottom: 16px;
 
+    text-transform: uppercase;
 }
 
 
-/* =========================================================
-   MAIN TITLE
-========================================================= */
+/* =====================================================
+   MAIN HEADING
+===================================================== */
 
 .message h1 {
 
-    margin: 0;
-
     font-size:
-        clamp(
-            45px,
-            7vw,
-            80px
-        );
+        clamp(42px, 6vw, 76px);
 
     line-height: 1;
 
     font-weight: 400;
 
-    color: #fff;
+    margin: 0;
 
+    color: #fff;
 }
 
 
-/* =========================================================
-   MESSAGE PARAGRAPH
-========================================================= */
+/* =====================================================
+   PARAGRAPH
+===================================================== */
 
 .message p {
 
     margin-top: 22px;
 
     font-size:
-        clamp(
-            15px,
-            2vw,
-            19px
-        );
+        clamp(15px, 2vw, 19px);
 
     line-height: 1.8;
 
     color:
-        rgba(255,255,255,.86);
-
+        rgba(255,255,255,.85);
 }
 
 
-/* =========================================================
+/* =====================================================
    HEART
-========================================================= */
+===================================================== */
 
 .message .heart {
 
@@ -261,13 +232,10 @@ body {
 
     font-size: 22px;
 
-    color: #f5b4c8;
+    color: #f7b8c9;
 
     animation:
-        heartbeat 2s
-        ease-in-out
-        infinite;
-
+        heartbeat 2s ease-in-out infinite;
 }
 
 
@@ -275,44 +243,59 @@ body {
 
     0%,
     100% {
-
-        transform:
-            scale(1);
-
+        transform: scale(1);
     }
 
     50% {
+        transform: scale(1.18);
+    }
+}
 
-        transform:
-            scale(1.18);
 
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .message {
+
+        width: 88%;
+
+        top: 45%;
+    }
+
+    .message h1 {
+
+        font-size: 58px;
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
     .scene {
 
-        min-height: 520px;
+        width: 100vw;
 
+        height: 100svh;
+
+        min-height: 100svh;
     }
 
 
     .message {
 
-        top: 41%;
+        top: 42%;
 
-        width: 90%;
+        width: 88%;
 
-        padding:
-            0 10px;
-
+        padding: 0 5px;
     }
 
 
@@ -320,64 +303,51 @@ body {
 
         font-size: 8px;
 
-        letter-spacing: 3px;
+        letter-spacing: 4px;
 
         margin-bottom: 13px;
-
     }
 
 
     .message h1 {
 
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                52px
-            );
-
+        font-size: clamp(
+            38px,
+            12vw,
+            48px
+        );
     }
 
 
     .message p {
 
-        margin-top: 16px;
+        margin-top: 17px;
 
-        font-size:
-            clamp(
-                13px,
-                4vw,
-                16px
-            );
+        font-size: 14px;
 
-        line-height: 1.65;
-
+        line-height: 1.7;
     }
 
 
     .message .heart {
 
-        margin-top: 13px;
+        margin-top: 14px;
 
         font-size: 20px;
-
     }
 
 }
 
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 
     .message {
 
-        top: 39%;
-
-        width: 94%;
-
+        top: 40%;
     }
 
 
@@ -385,22 +355,19 @@ body {
 
         font-size: 7px;
 
-        letter-spacing: 2.5px;
-
+        letter-spacing: 3px;
     }
 
 
     .message h1 {
 
         font-size: 36px;
-
     }
 
 
     .message p {
 
         font-size: 13px;
-
     }
 
 }
@@ -415,16 +382,14 @@ body {
 
 <div class="scene">
 
-
     <canvas id="garden"></canvas>
-
 
     <div class="vignette"></div>
 
 
     <!-- =================================================
-         ROMANTIC TEXT
-    ================================================== -->
+         ROMANTIC MESSAGE
+    ================================================= -->
 
     <div
         class="message"
@@ -433,7 +398,7 @@ body {
 
         <div class="small">
 
-            FOR YOU, FARIHA
+            FOR YOU, MY LOVE
 
         </div>
 
@@ -461,7 +426,6 @@ body {
 
     </div>
 
-
 </div>
 
 
@@ -469,16 +433,14 @@ body {
 <script>
 
 /* =========================================================
-   CANVAS
+   CANVAS SETUP
 ========================================================= */
 
 const canvas =
     document.getElementById("garden");
 
-
 const ctx =
     canvas.getContext("2d");
-
 
 let W = 0;
 
@@ -499,10 +461,8 @@ function resize() {
             2
         );
 
-
     W =
         window.innerWidth;
-
 
     H =
         window.innerHeight;
@@ -511,14 +471,12 @@ function resize() {
     canvas.width =
         W * DPR;
 
-
     canvas.height =
         H * DPR;
 
 
     canvas.style.width =
         W + "px";
-
 
     canvas.style.height =
         H + "px";
@@ -535,12 +493,10 @@ function resize() {
 
 }
 
-
 window.addEventListener(
     "resize",
     resize
 );
-
 
 resize();
 
@@ -554,24 +510,15 @@ function random(min, max) {
     return Math.random() *
         (max - min) +
         min;
-
 }
 
 
-function clamp(
-    value,
-    min,
-    max
-) {
+function clamp(value, min, max) {
 
     return Math.max(
         min,
-        Math.min(
-            max,
-            value
-        )
+        Math.min(max, value)
     );
-
 }
 
 
@@ -582,7 +529,6 @@ function easeOutCubic(t) {
             1 - t,
             3
         );
-
 }
 
 
@@ -591,25 +537,20 @@ function easeOutBack(t) {
     const c1 =
         1.70158;
 
-
     const c3 =
         c1 + 1;
 
-
     return 1 +
-
         c3 *
         Math.pow(
             t - 1,
             3
         ) +
-
         c1 *
         Math.pow(
             t - 1,
             2
         );
-
 }
 
 
@@ -632,62 +573,57 @@ const FLOWER_TYPES = [
 ];
 
 
-/* =========================================================
-   FLOWER COLORS
-========================================================= */
-
 const FLOWER_COLORS = {
-
 
     rose: [
 
-        ["#a91e42", "#f05c7f"],
+        ["#b51f45", "#f05b7d"],
 
-        ["#8c1738", "#d83e68"],
+        ["#8f1838", "#d94468"],
 
-        ["#c62c54", "#ff829d"]
+        ["#c72d55", "#ff7d99"]
 
     ],
 
 
     sunflower: [
 
-        ["#e29c00", "#ffd63d"],
+        ["#e5a400", "#ffd84d"],
 
-        ["#d48700", "#ffc82b"]
+        ["#d58d00", "#ffc928"]
 
     ],
 
 
     tulip: [
 
-        ["#c9284e", "#ff6e8d"],
+        ["#d83258", "#ff718f"],
 
-        ["#a91d3e", "#eb5074"],
+        ["#b51e43", "#ed5475"],
 
-        ["#e58a20", "#ffd15c"],
+        ["#f09b32", "#ffd05b"],
 
-        ["#db4f84", "#ff9fbd"]
+        ["#e55a8a", "#ff9fbe"]
 
     ],
 
 
     daisy: [
 
-        ["#ffffff", "#dedede"],
+        ["#ffffff", "#e8e8e8"],
 
-        ["#fffdf6", "#ffffff"]
+        ["#fffaf0", "#ffffff"]
 
     ],
 
 
     blossom: [
 
-        ["#dc6e97", "#ffc3d7"],
+        ["#e978a1", "#ffc2d6"],
 
-        ["#ed91ae", "#ffe0ea"],
+        ["#f49ab7", "#ffe0ea"],
 
-        ["#ffffff", "#ffd8e5"]
+        ["#ffffff", "#ffd5e2"]
 
     ]
 
@@ -695,63 +631,10 @@ const FLOWER_COLORS = {
 
 
 /* =========================================================
-   FLOWER ARRAY
+   FLOWERS ARRAY
 ========================================================= */
 
 const flowers = [];
-
-
-/* =========================================================
-   GRASS ARRAY
-========================================================= */
-
-const grass = [];
-
-
-/* =========================================================
-   CREATE GRASS
-========================================================= */
-
-function createGrass() {
-
-    grass.length = 0;
-
-
-    const amount =
-        Math.floor(
-            W / 7
-        );
-
-
-    for (
-        let i = 0;
-        i < amount;
-        i++
-    ) {
-
-        grass.push({
-
-            x:
-                i * 7 +
-                random(-3, 3),
-
-            height:
-                random(8, 28),
-
-            width:
-                random(.6, 1.3),
-
-            phase:
-                random(
-                    0,
-                    Math.PI * 2
-                )
-
-        });
-
-    }
-
-}
 
 
 /* =========================================================
@@ -760,44 +643,33 @@ function createGrass() {
 
 function createFlower(index) {
 
-
     /*
-       Flower position
+       Responsive horizontal position
     */
 
     const x =
         random(
-            W * -.05,
-            W * 1.05
+            W * -0.03,
+            W * 1.03
         );
 
 
     /*
-       Flower height
+       Responsive height
     */
 
-    let height;
+    const height =
+        W <= 600
 
+        ? random(
+            H * 0.18,
+            H * 0.48
+        )
 
-    if (W < 600) {
-
-        height =
-            random(
-                H * .18,
-                H * .48
-            );
-
-    }
-
-    else {
-
-        height =
-            random(
-                H * .22,
-                H * .62
-            );
-
-    }
+        : random(
+            H * 0.22,
+            H * 0.60
+        );
 
 
     /*
@@ -809,16 +681,12 @@ function createFlower(index) {
 
 
     const scale =
-        .52 +
-        depth * .58;
+        0.55 +
+        depth * 0.55;
 
-
-    /*
-       Ground
-    */
 
     const baseY =
-        H + 25;
+        H + 20;
 
 
     const stemHeight =
@@ -830,30 +698,72 @@ function createFlower(index) {
         stemHeight;
 
 
-    /*
-       Random flower
-    */
+    /* =====================================================
+       FLOWER TYPE
 
-    const type =
-        FLOWER_TYPES[
-            Math.floor(
-                Math.random() *
-                FLOWER_TYPES.length
-            )
+       Sunflower = 40%
+       Other flowers = 60%
+    ===================================================== */
+
+    let type;
+
+
+    if (
+        Math.random() < 0.40
+    ) {
+
+        type =
+            "sunflower";
+
+    }
+
+    else {
+
+        const otherTypes = [
+
+            "rose",
+
+            "tulip",
+
+            "daisy",
+
+            "blossom"
+
         ];
 
 
-    const colorOptions =
+        type =
+            otherTypes[
+                Math.floor(
+                    Math.random() *
+                    otherTypes.length
+                )
+            ];
+
+    }
+
+
+    /*
+       Colors
+    */
+
+    const typeColors =
         FLOWER_COLORS[type];
 
 
     const selectedColors =
-        colorOptions[
+        typeColors[
             Math.floor(
                 Math.random() *
-                colorOptions.length
+                typeColors.length
             )
         ];
+
+
+    const petalCount =
+        Math.random() > .75
+        ? 7
+        : 6;
 
 
     /*
@@ -861,47 +771,11 @@ function createFlower(index) {
     */
 
     const delay =
-        index *
-        (
-            W < 600
-            ? .075
-            : .065
-        ) +
-
+        index * 0.14 +
         random(
             0,
             .35
         );
-
-
-    /*
-       Size
-    */
-
-    let flowerSize;
-
-
-    if (W < 600) {
-
-        flowerSize =
-            random(
-                10,
-                18
-            ) *
-            scale;
-
-    }
-
-    else {
-
-        flowerSize =
-            random(
-                13,
-                25
-            ) *
-            scale;
-
-    }
 
 
     flowers.push({
@@ -924,40 +798,67 @@ function createFlower(index) {
         color2:
             selectedColors[1],
 
+        petalCount,
+
+        /*
+           Smaller flowers on mobile
+        */
+
         size:
-            flowerSize,
+
+            W <= 600
+
+            ? random(
+                10,
+                19
+            ) * scale
+
+            : random(
+                13,
+                24
+            ) * scale,
 
         delay,
 
         growDuration:
             random(
                 1.7,
-                2.7
+                2.8
             ),
 
         bloomDuration:
             random(
-                .65,
-                1.0
+                .7,
+                1.1
             ),
 
         sway:
             random(
-                4,
-                13
+                5,
+                14
             ),
 
         swaySpeed:
             random(
                 .001,
-                .0022
+                .0025
             ),
 
         phase:
             random(
                 0,
                 Math.PI * 2
-            )
+            ),
+
+        leafSide:
+
+            Math.random() > .5
+            ? 1
+            : -1,
+
+        bloom: 0,
+
+        growth: 0
 
     });
 
@@ -966,6 +867,9 @@ function createFlower(index) {
 
 /* =========================================================
    GENERATE GARDEN
+
+   DESKTOP = 40
+   MOBILE  = 18
 ========================================================= */
 
 function generateGarden() {
@@ -973,32 +877,12 @@ function generateGarden() {
     flowers.length = 0;
 
 
-    let count;
+    const count =
+        W <= 600
 
+        ? 18
 
-    if (W < 400) {
-
-        count = 38;
-
-    }
-
-    else if (W < 600) {
-
-        count = 50;
-
-    }
-
-    else if (W < 1000) {
-
-        count = 70;
-
-    }
-
-    else {
-
-        count = 95;
-
-    }
+        : 40;
 
 
     for (
@@ -1013,17 +897,18 @@ function generateGarden() {
 
 
     /*
-       Small flowers behind,
-       large flowers in front.
+       Background flowers first
     */
 
     flowers.sort(
         (a, b) =>
-            a.scale -
-            b.scale
+            a.scale - b.scale
     );
 
 }
+
+
+generateGarden();
 
 
 /* =========================================================
@@ -1037,7 +922,7 @@ function drawStem(
 ) {
 
     if (growth <= 0)
-        return null;
+        return;
 
 
     const x =
@@ -1052,10 +937,6 @@ function drawStem(
         flower.stemHeight *
         growth;
 
-
-    /*
-       Wind
-    */
 
     const wind =
         Math.sin(
@@ -1076,43 +957,32 @@ function drawStem(
         currentHeight;
 
 
-    /*
-       Stem gradient
-    */
-
     const gradient =
         ctx.createLinearGradient(
-
             x,
             baseY,
-
             topX,
             topY
-
         );
 
 
     gradient.addColorStop(
         0,
-        "#0a3014"
+        "#0b3517"
     );
 
 
     gradient.addColorStop(
-        .45,
-        "#276b34"
+        .5,
+        "#286936"
     );
 
 
     gradient.addColorStop(
         1,
-        "#4e9550"
+        "#4d914e"
     );
 
-
-    /*
-       Stem
-    */
 
     ctx.beginPath();
 
@@ -1125,17 +995,18 @@ function drawStem(
 
     ctx.bezierCurveTo(
 
-        x -
-        wind * .25,
+        x - wind * .25,
 
         baseY -
-        currentHeight * .30,
+        currentHeight *
+        .30,
 
         topX +
         wind * .20,
 
         baseY -
-        currentHeight * .70,
+        currentHeight *
+        .70,
 
         topX,
 
@@ -1149,12 +1020,7 @@ function drawStem(
 
 
     ctx.lineWidth =
-
-        (
-            W < 600
-            ? 1.7
-            : 2.2
-        ) *
+        2.2 *
         flower.scale;
 
 
@@ -1165,13 +1031,11 @@ function drawStem(
     ctx.stroke();
 
 
-    /*
-       Leaves
-    */
-
     drawLeaves(
         flower,
         growth,
+        topX,
+        topY,
         wind
     );
 
@@ -1194,33 +1058,30 @@ function drawStem(
 function drawLeaves(
     flower,
     growth,
+    topX,
+    topY,
     wind
 ) {
 
-    if (growth < .25)
+    if (growth < .35)
         return;
 
 
     const positions = [
 
         {
-            p: .28,
+            p: .30,
             side: -1
         },
 
         {
-            p: .46,
+            p: .52,
             side: 1
         },
 
         {
-            p: .64,
+            p: .70,
             side: -1
-        },
-
-        {
-            p: .78,
-            side: 1
         }
 
     ];
@@ -1228,7 +1089,6 @@ function drawLeaves(
 
     positions.forEach(
         leaf => {
-
 
             if (
                 growth <
@@ -1239,35 +1099,26 @@ function drawLeaves(
 
             const y =
                 flower.baseY -
-
                 flower.stemHeight *
                 leaf.p;
 
 
             const x =
                 flower.x +
-
                 wind *
                 leaf.p;
 
 
             const size =
-
-                (
-                    W < 600
-                    ? 11
-                    : 15
-                ) *
+                15 *
                 flower.scale;
 
 
             drawLeaf(
-
                 x,
                 y,
                 size,
                 leaf.side
-
             );
 
         }
@@ -1277,7 +1128,7 @@ function drawLeaves(
 
 
 /* =========================================================
-   DRAW LEAF
+   DRAW ONE LEAF
 ========================================================= */
 
 function drawLeaf(
@@ -1341,25 +1192,22 @@ function drawLeaf(
 
     const gradient =
         ctx.createLinearGradient(
-
             0,
             0,
-
             size,
             0
-
         );
 
 
     gradient.addColorStop(
         0,
-        "#123919"
+        "#163e1d"
     );
 
 
     gradient.addColorStop(
         1,
-        "#3c813f"
+        "#397d3e"
     );
 
 
@@ -1368,36 +1216,6 @@ function drawLeaf(
 
 
     ctx.fill();
-
-
-    /*
-       Leaf vein
-    */
-
-    ctx.beginPath();
-
-
-    ctx.moveTo(
-        0,
-        0
-    );
-
-
-    ctx.lineTo(
-        size * .75,
-        -size * .12
-    );
-
-
-    ctx.strokeStyle =
-        "rgba(130,190,120,.25)";
-
-
-    ctx.lineWidth =
-        .6;
-
-
-    ctx.stroke();
 
 
     ctx.restore();
@@ -1418,6 +1236,10 @@ function drawFlower(
 
     if (bloom <= 0)
         return;
+
+
+    const size =
+        flower.size;
 
 
     const scale =
@@ -1451,7 +1273,7 @@ function drawFlower(
             flower.swaySpeed +
             flower.phase
         ) *
-        .035;
+        0.035;
 
 
     ctx.rotate(
@@ -1465,13 +1287,12 @@ function drawFlower(
     ) {
 
         drawRose(
-            flower.size,
+            size,
             flower.color1,
             flower.color2
         );
 
     }
-
 
     else if (
         flower.type ===
@@ -1479,11 +1300,10 @@ function drawFlower(
     ) {
 
         drawSunflower(
-            flower.size
+            size
         );
 
     }
-
 
     else if (
         flower.type ===
@@ -1491,13 +1311,12 @@ function drawFlower(
     ) {
 
         drawTulip(
-            flower.size,
+            size,
             flower.color1,
             flower.color2
         );
 
     }
-
 
     else if (
         flower.type ===
@@ -1505,18 +1324,17 @@ function drawFlower(
     ) {
 
         drawDaisy(
-            flower.size,
+            size,
             flower.color1,
             flower.color2
         );
 
     }
 
-
     else {
 
         drawBlossom(
-            flower.size,
+            size,
             flower.color1,
             flower.color2
         );
@@ -1530,7 +1348,7 @@ function drawFlower(
 
 
 /* =========================================================
-   🌹 ROSE
+   ROSE
 ========================================================= */
 
 function drawRose(
@@ -1542,17 +1360,11 @@ function drawRose(
     ctx.save();
 
 
-    ctx.shadowBlur =
-        7;
-
+    ctx.shadowBlur = 8;
 
     ctx.shadowColor =
         color1;
 
-
-    /*
-       Outer petals
-    */
 
     for (
         let i = 0;
@@ -1561,8 +1373,10 @@ function drawRose(
     ) {
 
         const angle =
-            Math.PI * 2 *
-            i / 10;
+            (
+                Math.PI * 2 /
+                10
+            ) * i;
 
 
         ctx.save();
@@ -1613,18 +1427,18 @@ function drawRose(
             -size * .65,
             -size * .35,
 
-            -size * .48,
+            -size * .45,
             -size * 1.05,
 
             0,
-            -size * 1.38
+            -size * 1.35
 
         );
 
 
         ctx.bezierCurveTo(
 
-            size * .48,
+            size * .45,
             -size * 1.05,
 
             size * .65,
@@ -1648,10 +1462,6 @@ function drawRose(
     }
 
 
-    /*
-       Inner rose petals
-    */
-
     for (
         let i = 0;
         i < 7;
@@ -1659,9 +1469,10 @@ function drawRose(
     ) {
 
         const angle =
-            i *
-            Math.PI *
-            2 / 7;
+            (
+                Math.PI * 2 /
+                7
+            ) * i;
 
 
         ctx.save();
@@ -1679,13 +1490,13 @@ function drawRose(
 
             0,
 
-            -size * .22,
+            -size * .28,
 
-            size * .42,
+            size * .45,
 
-            .25,
+            .3,
 
-            Math.PI * 1.75
+            Math.PI * 1.8
 
         );
 
@@ -1695,7 +1506,7 @@ function drawRose(
 
 
         ctx.lineWidth =
-            size * .13;
+            size * .15;
 
 
         ctx.stroke();
@@ -1706,10 +1517,6 @@ function drawRose(
     }
 
 
-    /*
-       Rose center
-    */
-
     ctx.beginPath();
 
 
@@ -1718,7 +1525,7 @@ function drawRose(
         0,
         0,
 
-        size * .22,
+        size * .25,
 
         0,
         Math.PI * 2
@@ -1739,38 +1546,31 @@ function drawRose(
 
 
 /* =========================================================
-   🌻 SUNFLOWER
+   SUNFLOWER
 ========================================================= */
 
 function drawSunflower(
     size
 ) {
 
-    const outer =
-        "#d99100";
+    const petalOuter =
+        "#e8a900";
 
 
-    const inner =
-        "#ffd447";
+    const petalInner =
+        "#ffd43b";
 
 
     ctx.save();
 
 
-    ctx.shadowBlur =
-        6;
-
+    ctx.shadowBlur = 6;
 
     ctx.shadowColor =
         "#ffd84d";
 
 
-    /*
-       Petals
-    */
-
-    const petals =
-        20;
+    const petals = 18;
 
 
     for (
@@ -1781,7 +1581,8 @@ function drawSunflower(
 
         const angle =
             Math.PI * 2 *
-            i / petals;
+            i /
+            petals;
 
 
         ctx.save();
@@ -1806,13 +1607,13 @@ function drawSunflower(
 
         gradient.addColorStop(
             0,
-            inner
+            petalInner
         );
 
 
         gradient.addColorStop(
             1,
-            outer
+            petalOuter
         );
 
 
@@ -1823,15 +1624,16 @@ function drawSunflower(
 
             0,
 
-            -size * .82,
+            -size * .9,
 
-            size * .23,
+            size * .25,
 
-            size * .75,
+            size * .8,
+
+            0,
 
             0,
 
-            0,
             Math.PI * 2
 
         );
@@ -1849,12 +1651,10 @@ function drawSunflower(
     }
 
 
-    /*
-       Brown center
-    */
+    ctx.shadowBlur = 3;
 
-    ctx.shadowBlur =
-        2;
+    ctx.shadowColor =
+        "#6c4100";
 
 
     ctx.beginPath();
@@ -1873,7 +1673,7 @@ function drawSunflower(
     );
 
 
-    const center =
+    const centerGradient =
         ctx.createRadialGradient(
 
             0,
@@ -1887,42 +1687,37 @@ function drawSunflower(
         );
 
 
-    center.addColorStop(
+    centerGradient.addColorStop(
         0,
-        "#432600"
+        "#4c2b00"
     );
 
 
-    center.addColorStop(
-        .55,
-        "#684000"
+    centerGradient.addColorStop(
+        .6,
+        "#704300"
     );
 
 
-    center.addColorStop(
+    centerGradient.addColorStop(
         1,
-        "#956000"
+        "#9a6100"
     );
 
 
     ctx.fillStyle =
-        center;
+        centerGradient;
 
 
     ctx.fill();
 
 
-    /*
-       Seeds
-    */
-
-    ctx.shadowBlur =
-        0;
+    ctx.shadowBlur = 0;
 
 
     for (
         let i = 0;
-        i < 35;
+        i < 30;
         i++
     ) {
 
@@ -1932,9 +1727,9 @@ function drawSunflower(
 
         const radius =
             size *
-            .44 *
+            .42 *
             Math.sqrt(
-                i / 35
+                i / 30
             );
 
 
@@ -1952,13 +1747,14 @@ function drawSunflower(
             size * .035,
 
             0,
+
             Math.PI * 2
 
         );
 
 
         ctx.fillStyle =
-            "#bf821c";
+            "#c58a1d";
 
 
         ctx.fill();
@@ -1972,7 +1768,7 @@ function drawSunflower(
 
 
 /* =========================================================
-   🌷 TULIP
+   TULIP
 ========================================================= */
 
 function drawTulip(
@@ -1984,9 +1780,7 @@ function drawTulip(
     ctx.save();
 
 
-    ctx.shadowBlur =
-        6;
-
+    ctx.shadowBlur = 7;
 
     ctx.shadowColor =
         color1;
@@ -1997,74 +1791,62 @@ function drawTulip(
 
     ctx.moveTo(
         -size * .85,
-        -size * .15
+        -size * .2
     );
 
-
-    /*
-       Left side
-    */
 
     ctx.bezierCurveTo(
 
         -size * 1.0,
-        -size * 1.0,
+        -size * 1.1,
 
-        -size * .55,
-        -size * 1.35,
-
-        -size * .10,
-        -size * .72
-
-    );
-
-
-    /*
-       Center
-    */
-
-    ctx.bezierCurveTo(
+        -size * .45,
+        -size * 1.3,
 
         0,
-        -size * 1.35,
+        -size * .75
+
+    );
+
+
+    ctx.bezierCurveTo(
 
         size * .45,
-        -size * 1.35,
+        -size * 1.3,
+
+        size * 1.0,
+        -size * 1.1,
 
         size * .85,
-        -size * .15
+        -size * .2
 
     );
 
 
-    /*
-       Bottom
-    */
-
     ctx.bezierCurveTo(
 
-        size * .65,
-        size * .35,
-
+        size * .7,
         size * .25,
-        size * .38,
+
+        size * .3,
+        size * .4,
 
         0,
-        size * .15
+        size * .2
 
     );
 
 
     ctx.bezierCurveTo(
 
-        -size * .25,
-        size * .38,
+        -size * .3,
+        size * .4,
 
-        -size * .65,
-        size * .35,
+        -size * .7,
+        size * .25,
 
         -size * .85,
-        -size * .15
+        -size * .2
 
     );
 
@@ -2100,23 +1882,19 @@ function drawTulip(
     ctx.fill();
 
 
-    /*
-       Petal folds
-    */
-
     ctx.beginPath();
 
 
     ctx.moveTo(
         0,
-        -size * .75
+        -size * .8
     );
 
 
     ctx.quadraticCurveTo(
 
-        -size * .12,
-        -size * .15,
+        -size * .1,
+        -size * .2,
 
         0,
         size * .15
@@ -2125,11 +1903,11 @@ function drawTulip(
 
 
     ctx.strokeStyle =
-        "rgba(100,15,40,.28)";
+        "rgba(120,20,40,.3)";
 
 
     ctx.lineWidth =
-        size * .065;
+        size * .07;
 
 
     ctx.stroke();
@@ -2141,7 +1919,7 @@ function drawTulip(
 
 
 /* =========================================================
-   🌼 DAISY
+   DAISY
 ========================================================= */
 
 function drawDaisy(
@@ -2153,16 +1931,13 @@ function drawDaisy(
     ctx.save();
 
 
-    ctx.shadowBlur =
-        4;
-
+    ctx.shadowBlur = 5;
 
     ctx.shadowColor =
         "#ffffff";
 
 
-    const petals =
-        14;
+    const petals = 14;
 
 
     for (
@@ -2173,7 +1948,8 @@ function drawDaisy(
 
         const angle =
             Math.PI * 2 *
-            i / petals;
+            i /
+            petals;
 
 
         ctx.save();
@@ -2191,15 +1967,16 @@ function drawDaisy(
 
             0,
 
-            -size * .75,
+            -size * .8,
 
-            size * .24,
+            size * .25,
 
-            size * .70,
+            size * .75,
+
+            0,
 
             0,
 
-            0,
             Math.PI * 2
 
         );
@@ -2212,7 +1989,7 @@ function drawDaisy(
                 -size * .2,
 
                 0,
-                -size * 1.4
+                -size * 1.5
 
             );
 
@@ -2241,12 +2018,10 @@ function drawDaisy(
     }
 
 
-    /*
-       Center
-    */
+    ctx.shadowBlur = 4;
 
-    ctx.shadowBlur =
-        3;
+    ctx.shadowColor =
+        "#ffdb55";
 
 
     ctx.beginPath();
@@ -2257,7 +2032,7 @@ function drawDaisy(
         0,
         0,
 
-        size * .30,
+        size * .32,
 
         0,
         Math.PI * 2
@@ -2266,7 +2041,7 @@ function drawDaisy(
 
 
     ctx.fillStyle =
-        "#f1c42c";
+        "#f3c328";
 
 
     ctx.fill();
@@ -2278,7 +2053,7 @@ function drawDaisy(
 
 
 /* =========================================================
-   🌸 BLOSSOM
+   BLOSSOM
 ========================================================= */
 
 function drawBlossom(
@@ -2290,16 +2065,13 @@ function drawBlossom(
     ctx.save();
 
 
-    ctx.shadowBlur =
-        6;
-
+    ctx.shadowBlur = 7;
 
     ctx.shadowColor =
         color1;
 
 
-    const petals =
-        5;
+    const petals = 5;
 
 
     for (
@@ -2310,7 +2082,8 @@ function drawBlossom(
 
         const angle =
             Math.PI * 2 *
-            i / petals;
+            i /
+            petals;
 
 
         ctx.save();
@@ -2332,10 +2105,10 @@ function drawBlossom(
 
         ctx.bezierCurveTo(
 
-            -size * .48,
-            -size * .50,
+            -size * .5,
+            -size * .5,
 
-            -size * .38,
+            -size * .4,
             -size * 1.05,
 
             0,
@@ -2346,11 +2119,11 @@ function drawBlossom(
 
         ctx.bezierCurveTo(
 
-            size * .38,
+            size * .4,
             -size * 1.05,
 
-            size * .48,
-            -size * .50,
+            size * .5,
+            -size * .5,
 
             0,
             0
@@ -2362,11 +2135,11 @@ function drawBlossom(
             ctx.createRadialGradient(
 
                 0,
-                -size * .70,
+                -size * .7,
                 1,
 
                 0,
-                -size * .70,
+                -size * .7,
                 size
 
             );
@@ -2396,12 +2169,7 @@ function drawBlossom(
     }
 
 
-    /*
-       Center
-    */
-
-    ctx.shadowBlur =
-        2;
+    ctx.shadowBlur = 3;
 
 
     ctx.beginPath();
@@ -2421,53 +2189,10 @@ function drawBlossom(
 
 
     ctx.fillStyle =
-        "#dfa435";
+        "#e5a93a";
 
 
     ctx.fill();
-
-
-    /*
-       Small center dots
-    */
-
-    for (
-        let i = 0;
-        i < 5;
-        i++
-    ) {
-
-        const angle =
-            Math.PI * 2 *
-            i / 5;
-
-
-        ctx.beginPath();
-
-
-        ctx.arc(
-
-            Math.cos(angle) *
-            size * .25,
-
-            Math.sin(angle) *
-            size * .25,
-
-            size * .035,
-
-            0,
-            Math.PI * 2
-
-        );
-
-
-        ctx.fillStyle =
-            "#b57a24";
-
-
-        ctx.fill();
-
-    }
 
 
     ctx.restore();
@@ -2479,81 +2204,97 @@ function drawBlossom(
    GRASS
 ========================================================= */
 
-function drawGrass(
-    time
-) {
+function drawGrass() {
 
     const ground =
-        H - 10;
+        H - 15;
 
 
-    grass.forEach(
-        (blade, index) => {
+    const amount =
+        Math.floor(
+            W / 8
+        );
 
 
-            const sway =
-                Math.sin(
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
 
-                    time * .001 +
-
-                    blade.phase +
-
-                    index * .15
-
-                ) * 3;
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-
-                blade.x,
-                ground
-
+        const x =
+            i * 8 +
+            random(
+                -4,
+                4
             );
 
 
-            ctx.quadraticCurveTo(
-
-                blade.x +
-                sway,
-
-                ground -
-                blade.height * .5,
-
-                blade.x +
-                sway * 2,
-
-                ground -
-                blade.height
-
+        const height =
+            random(
+                8,
+                28
             );
 
 
-            ctx.strokeStyle =
-                "rgba(38,88,42,.60)";
+        const sway =
+            Math.sin(
+
+                performance.now() *
+                .001 +
+                i
+
+            ) * 3;
 
 
-            ctx.lineWidth =
-                blade.width;
+        ctx.beginPath();
 
 
-            ctx.stroke();
+        ctx.moveTo(
+            x,
+            ground
+        );
 
-        }
-    );
+
+        ctx.quadraticCurveTo(
+
+            x + sway,
+
+            ground -
+            height * .5,
+
+            x + sway * 2,
+
+            ground -
+            height
+
+        );
+
+
+        ctx.strokeStyle =
+            "rgba(38,88,42,.55)";
+
+
+        ctx.lineWidth = 1;
+
+
+        ctx.stroke();
+
+    }
 
 }
 
 
 /* =========================================================
-   INITIAL GENERATION
+   ANIMATION
 ========================================================= */
 
-generateGarden();
+const startTime =
+    performance.now();
 
-createGrass();
+
+const TOTAL_GROW_TIME =
+    6.5;
 
 
 /* =========================================================
@@ -2571,71 +2312,12 @@ let messageShown =
 
 
 /* =========================================================
-   CALCULATE WHEN TEXT SHOULD APPEAR
-========================================================= */
-
-function getMessageTime() {
-
-    let latest =
-        0;
-
-
-    flowers.forEach(
-        flower => {
-
-            const end =
-
-                flower.delay +
-
-                flower.growDuration +
-
-                flower.bloomDuration;
-
-
-            if (
-                end > latest
-            ) {
-
-                latest =
-                    end;
-
-            }
-
-        }
-    );
-
-
-    /*
-       Give the garden
-       a little extra time.
-    */
-
-    return latest + .8;
-
-}
-
-
-/* =========================================================
-   ANIMATION START
-========================================================= */
-
-const startTime =
-    performance.now();
-
-
-const messageTime =
-    getMessageTime();
-
-
-/* =========================================================
-   MAIN ANIMATION
+   MAIN LOOP
 ========================================================= */
 
 function animate(time) {
 
-
     const elapsed =
-
         (
             time -
             startTime
@@ -2643,28 +2325,26 @@ function animate(time) {
 
 
     /*
-       Clear canvas
+       Clear screen
     */
 
     ctx.clearRect(
-
         0,
         0,
         W,
         H
-
     );
 
 
-    /* =====================================================
-       DARK GROUND
-    ===================================================== */
+    /*
+       Ground darkness
+    */
 
     const groundGradient =
         ctx.createLinearGradient(
 
             0,
-            H * .60,
+            H * .70,
 
             0,
             H
@@ -2673,26 +2353,20 @@ function animate(time) {
 
 
     groundGradient.addColorStop(
-
         0,
         "rgba(0,0,0,0)"
-
     );
 
 
     groundGradient.addColorStop(
-
-        .55,
-        "rgba(3,12,5,.40)"
-
+        .65,
+        "rgba(3,12,5,.45)"
     );
 
 
     groundGradient.addColorStop(
-
         1,
-        "rgba(2,10,4,.96)"
-
+        "rgba(2,10,4,.95)"
     );
 
 
@@ -2703,39 +2377,34 @@ function animate(time) {
     ctx.fillRect(
 
         0,
-        H * .60,
+
+        H * .65,
 
         W,
-        H * .40
+
+        H * .35
 
     );
 
 
-    /* =====================================================
-       GRASS
-    ===================================================== */
+    /*
+       Grass
+    */
 
-    drawGrass(
-        time
-    );
+    drawGrass();
 
 
-    /* =====================================================
-       FLOWERS
-    ===================================================== */
+    /*
+       Flowers
+    */
 
     flowers.forEach(
         flower => {
-
 
             const local =
                 elapsed -
                 flower.delay;
 
-
-            /*
-               Flower hasn't started yet.
-            */
 
             if (
                 local <= 0
@@ -2743,12 +2412,11 @@ function animate(time) {
                 return;
 
 
-            /* =================================================
-               STEM GROWTH
-            ================================================= */
+            /*
+               Stem growth
+            */
 
             const growthProgress =
-
                 clamp(
 
                     local /
@@ -2761,7 +2429,6 @@ function animate(time) {
 
 
             const growth =
-
                 easeOutCubic(
                     growthProgress
                 );
@@ -2783,18 +2450,16 @@ function animate(time) {
                 return;
 
 
-            /* =================================================
-               FLOWER BLOOM
-            ================================================= */
+            /*
+               Bloom
+            */
 
             const bloomStart =
-
                 flower.growDuration -
-                .15;
+                .18;
 
 
             const bloomProgress =
-
                 clamp(
 
                     (
@@ -2831,22 +2496,20 @@ function animate(time) {
     );
 
 
-    /* =====================================================
-       SHOW TEXT
-    ===================================================== */
+    /*
+       Show message
+    */
 
     if (
 
         elapsed >
-        messageTime &&
+        TOTAL_GROW_TIME &&
 
         !messageShown
 
     ) {
 
-        messageShown =
-            true;
-
+        messageShown = true;
 
         message.classList.add(
             "show"
@@ -2855,20 +2518,12 @@ function animate(time) {
     }
 
 
-    /*
-       Continue animation
-    */
-
     requestAnimationFrame(
         animate
     );
 
 }
 
-
-/* =========================================================
-   START
-========================================================= */
 
 requestAnimationFrame(
     animate
@@ -2880,11 +2535,8 @@ requestAnimationFrame(
 ========================================================= */
 
 window.addEventListener(
-
     "keydown",
-
     event => {
-
 
         if (
 
@@ -2898,7 +2550,6 @@ window.addEventListener(
         }
 
     }
-
 );
 
 </script>
